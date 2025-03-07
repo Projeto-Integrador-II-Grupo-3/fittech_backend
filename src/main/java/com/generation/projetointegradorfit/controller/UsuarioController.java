@@ -58,13 +58,13 @@ private UsuarioRepository usuarioRepository;
    }
 
 
-   /*@PutMapping
+   @PutMapping
    public ResponseEntity<Usuario> put(@Valid @RequestBody Usuario usuario) {
        return usuarioRepository.findById(usuario.getId())
                .map(resposta -> ResponseEntity.status(HttpStatus.OK)
                        .body(usuarioRepository.save(usuario)))
                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-   }*/
+   }
 
 
    @ResponseStatus(HttpStatus.NO_CONTENT)

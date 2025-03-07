@@ -37,9 +37,6 @@ public class Exercicio {
 	@JsonIgnoreProperties("exercicio") // anotação para não deixar uma resposta em loop no Json
 	private Treino treino;
 	 
-	 @ManyToOne
-	 @JsonIgnoreProperties("exercicio")
-	 private Usuario usuario;
 	
 	public Long getId() {
 		return id;
@@ -55,12 +52,7 @@ public class Exercicio {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	
 	public String getGrupoMuscular() {
 		return grupoMuscular;
 	}

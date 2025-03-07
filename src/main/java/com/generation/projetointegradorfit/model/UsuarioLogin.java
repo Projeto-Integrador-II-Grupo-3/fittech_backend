@@ -6,6 +6,9 @@ public class UsuarioLogin {
 	private String nome;
 	private String usuario;
 	private String senha;
+	private String tipo;
+	private Double peso;
+	private Double altura;
 	private String token;
 	public Long getId() {
 		return id;
@@ -30,6 +33,26 @@ public class UsuarioLogin {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
+	public Double getPeso() {
+		return peso;
+	}
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
+	public Double getAltura() {
+		return altura;
+	}
+	public void setAltura(Double altura) {
+		this.altura = altura;
 	}
 	public String getToken() {
 		return token;

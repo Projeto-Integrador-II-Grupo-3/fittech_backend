@@ -16,6 +16,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 //import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 //import jakarta.persistence.ManyToOne;
@@ -33,6 +34,7 @@ public class Treino {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public Treino() {}
 
     @NotBlank(message = "O nome do treino é Obrigatório!")
     @Size(min = 2, max = 50, message = "O atributo nome do treino deve conter no mínimo 02 e no máximo 100 caracteres")
@@ -48,6 +50,10 @@ public class Treino {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "treino", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("treino")
     private List<Exercicio> exercicio;
+    
+    @ManyToOne 
+   	@JsonIgnoreProperties({"treino", "cpf", "usuario", "senha"}) // anotação para não deixar uma resposta em loop no Json
+   	private Usuario usuario;
 
 
     public Long getId() {
@@ -60,6 +66,7 @@ public class Treino {
     }
 
 
+    
     public String getTreino() {
         return treino;
     }
@@ -89,6 +96,16 @@ public class Treino {
 		this.exercicio = exercicio;
 	}
 
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 
 	
 

@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -48,7 +47,7 @@ public class Usuario {
     @Size(min = 8, message = "A SENHA deve ter no mínimo 8 caracteres")
     private String senha;
 
-   
+    @NotBlank
     private String tipo;
 
    
@@ -63,10 +62,9 @@ public class Usuario {
     
     
         
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
-    @JsonIgnoreProperties("usuario")
-    private List<Exercicio> exercicio;
-    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+    @JsonIgnoreProperties({"usuario", "descricao"})
+    private List<Treino> treino;
     
     
     
@@ -151,14 +149,13 @@ public class Usuario {
         this.imc = imc;
     }
 
-
-	public List<Exercicio> getExercicio() {
-		return exercicio;
+	public List<Treino> getTreino() {
+		return treino;
 	}
 
 
-	public void setExercicio(List<Exercicio> exercicio) {
-		this.exercicio = exercicio;
+	public void setTreino(List<Treino> treino) {
+		this.treino = treino;
 	}
 
 
