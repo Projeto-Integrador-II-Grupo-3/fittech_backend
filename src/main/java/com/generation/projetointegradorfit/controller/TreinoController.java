@@ -69,7 +69,7 @@ public class TreinoController {
     }
 
 
-    @PutMapping
+    @PutMapping("/treino/{id}")
     public ResponseEntity<Treino> put(@Valid @RequestBody Treino treino){
         return treinoRepository.findById(treino.getId())
             .map(resposta -> ResponseEntity.status(HttpStatus.CREATED)
