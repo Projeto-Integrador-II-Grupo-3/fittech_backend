@@ -21,6 +21,7 @@ import com.generation.projetointegradorfit.model.Exercicio;
 import com.generation.projetointegradorfit.repository.ExercicioRepository;
 
 import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/exercicio")
 @CrossOrigin(origins = "*", allowedHeaders = "*")

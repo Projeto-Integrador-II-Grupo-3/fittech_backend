@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,6 +32,7 @@ public class Usuario {
     @Size(max = 11, message = "O Atributo CPF deve ser um CPF válido!")
     private String cpf;
 
+    @Schema(example = "email@email.com.br")
     @NotNull(message = "O Atributo USUÁRIO é Obrigatório!")
     @Email(message = "O Atributo USUÁRIO deve ser um email válido!")
     private String usuario;
